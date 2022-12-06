@@ -1,5 +1,3 @@
-// const turnTable = { '1': 'X', '-1': 'O' }
-
 /*-------------------------------- Constants --------------------------------*/
 
 const winningCombos = [
@@ -47,8 +45,11 @@ function checkTie() {
 
 // If any winning combination of elements in board add up to 3, set winner to true 
 // the some method returns true or false!
+
 function checkWin() {
-	winner = winningCombos.some(combo => (Math.abs(board[combo[0]] + board[combo[1]] + board[combo[2]]) === 3))
+	winner = winningCombos.some((combo) => (
+		Math.abs(board[combo[0]] + board[combo[1]] + board[combo[2]]) === 3
+	))
 }
 
 function switchTurn() { turn *= -1 }
@@ -67,7 +68,7 @@ function renderBoard() {
 		: squares[idx].innerText = '')
 }
 
-// This approach to render is a bit unconventional.
+// Notice our render function.
 // It calls upon all of the remaining functions necessary to complete a turn, including 
 // mini render functions that update the appearance of specific portions of the UI.
 // The advantage we get is being able to see the sequence of a turn quite easily. 
